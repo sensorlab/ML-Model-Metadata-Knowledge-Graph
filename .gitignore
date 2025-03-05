@@ -1,0 +1,4 @@
+.aider*
+localization_model_metadata_dataset/*.json
+localization_model_metadata_dataset/*/*.json
+.env
