@@ -26,9 +26,7 @@ JSON_DIR=./model_descriptors
 
 ## Usage
 
-### Deploy your own Neo4j instance using Docker (optional)
-
-1. Run the following command to deploy a Neo4j instance using Docker:
+1. Run the following command to deploy a Neo4j instance using Docker (optional):
 
 ```bash
 docker run --name neo4j -p 7474:7474 -p 7687:7687 -d -e NEO4J_AUTH=neo4j/your-password-here neo4j:latest
@@ -74,17 +72,27 @@ The following diagram illustrates the ontology of the knowledge graph:
 
 ## Use Cases
 
+The ML model metadata knowledge graph enables several key applications, from environmental impact optimization to intelligent model deployment and natural language-based exploration.
+
 ### Green Computing Applications
-- Select ML models based on carbon footprint and energy consumption metrics
-- Enable energy-efficient task distribution
-- Support workload shifting for reduced environmental impact
+- Intelligent selection of ML models based on energy consumption and carbon footprint metrics through both Neo4j queries and potentialy graph neural networks (GNN)
+- Analysis of how model architectures and datasets affect carbon footprint
+- Workload shifting capabilities to reduce overall environmental impact
 
-### ML Model Orchestration
-- Facilitate intelligent model deployment based on device capabilities
-- Optimize workload placement using training/inference metrics
-- Support distributed and edge infrastructure deployment
+### Intelligent ML Model Orchestration
+- Comprehensive knowledge of training and inference metrics (latency, computational complexity, carbon footprint, accuracy)
+- Possible integration with MLOps systems for optimized training and deployment on distributed infrastructure
+- This could enhanced performance on edge devices through improved model orchestration and improve resource utilization based on infrastructure capabilities
 
-### Graph-based Model Analysis
-- Query model metadata using Neo4j's Cypher language
-- Support graph-based retrieval for model selection
-- Enable natural language interaction through graph RAG capabilities
+### Graph-based Retrieval and Analysis
+- Natural language interaction through Graph Retrieval Augmented Generation (RAG)
+- Generation of insights about model relationships and performance patterns
+- Interactive exploration of model metadata through graph-based queries
+
+## License
+
+This project is licensed under the [BSD-3 Clause License](LICENSE) - see the LICENSE file for details.
+
+## Citation
+
+## Acknowledgments
