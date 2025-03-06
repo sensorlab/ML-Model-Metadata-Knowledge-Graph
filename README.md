@@ -1,6 +1,6 @@
 # ML-Model-Metadata-Knowledge-Graph
 
-This project helps manage and analyze information about machine learning models (model metadata) by storing it in a knowledge graph database. When training ML models, we collect important details like how well the model performs, how much energy it uses, what kind of hardware it needs, and what data it was trained on. By organizing all this information in a graph structure, we make it easy to find the right model for specific needs, compare different models, and understand their environmental impact. The project includes schemas on how to collect this metadata in a standard format and store it in a Neo4j graph database, which is a knowledge graph tath can then be queried to answer questions about the models. It enalbes use cases presented in below.
+This project helps manage and analyze information about machine learning models (model metadata) by storing it in a knowledge graph database. When training ML models, we collect important details like how well the model performs, how much energy it uses, what kind of hardware it needs, and what data it was trained on. By organizing all this information in a graph structure, we make it easy to find the right model for specific needs, compare different models, and understand their environmental impact. The project includes schemas on how to collect this metadata in a standard format and store it in a Neo4j graph database, which is a knowledge graph that can then be queried to answer questions about the models. It enables use cases presented below.
 
 ## Installation
 
@@ -75,14 +75,14 @@ The following diagram illustrates the ontology of the knowledge graph:
 The ML model metadata knowledge graph enables several key applications, from environmental impact optimization to intelligent model deployment and natural language-based exploration.
 
 ### Green Computing Applications
-- Intelligent selection of ML models based on energy consumption and carbon footprint metrics through both Neo4j queries and potentialy graph neural networks (GNN)
+- Intelligent selection of ML models based on energy consumption and carbon footprint metrics through both Neo4j queries and potentially graph neural networks (GNN)
 - Analysis of how model architectures and datasets affect carbon footprint
 - Workload shifting capabilities to reduce overall environmental impact
 
 ### Intelligent ML Model Orchestration
 - Comprehensive knowledge of training and inference metrics (latency, computational complexity, carbon footprint, accuracy)
 - Possible integration with MLOps systems for optimized training and deployment on distributed infrastructure
-- This could enhanced performance on edge devices through improved model orchestration and improve resource utilization based on infrastructure capabilities
+- This could enhance performance on edge devices through improved model orchestration and improve resource utilization based on infrastructure capabilities
 
 ### Graph-based Retrieval and Analysis
 - Natural language interaction through Graph Retrieval Augmented Generation (RAG)
