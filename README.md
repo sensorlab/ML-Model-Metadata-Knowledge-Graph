@@ -21,7 +21,7 @@ NEO4J_USER=neo4j
 NEO4J_PASSWORD=your-password-here
 
 # Application Settings
-JSON_DIR=./model_descriptors
+JSON_DIR=./localization_model_metadata_dataset
 ```
 
 ## Usage
@@ -32,7 +32,8 @@ JSON_DIR=./model_descriptors
 docker run --name neo4j -p 7474:7474 -p 7687:7687 -d -e NEO4J_AUTH=neo4j/your-password-here neo4j:latest
 ```
 
-2. Place your ML model metadata JSON files in the configured `JSON_DIR` directory.
+2. Place your ML model metadata JSON files in the configured `JSON_DIR` directory. 
+    - (optional) If you don't have any model metadata yet, you can use the example localization model metadata JSON files provided in the `localization_model_metadata_dataset/compressed.zip` file. Extract and proceed to step 4.
 3. Ensure your JSON files conform to the schema defined in `json_schema/model_card_schema.json`. You can use the `json_schema/schema_validator.py` script to validate your JSON files.
 4. Run the script to insert metadata from JSON files into the Neo4j knowledge graph:
 ```bash
@@ -53,15 +54,20 @@ The knowledge graph implements the following structure:
 - **Device**: Hardware specifications for training/inference
 - **ModelTraining**: Training metrics and parameters
 - **ModelInference**: Inference performance data
+- **Parameters**: Training parameters including optimizer and split type
+- **Hyperparameters**: Model hyperparameters such as learning rate, batch size
 
 ### Relationships
 
-- **trainedOn**: Connects Model to Dataset
-- **provides**: Links Model to Service
-- **basedOn**: Associates Model with ModelArchitecture
-- **runsOn**: Connects ModelTraining/ModelInference to Device
-- **trainsOn**: Links Model to ModelTraining
-- **solutionFor**: Connects Service to ProblemType
+- **TRAINED_ON**: Connects Model to Dataset
+- **PROVIDES**: Links Model to Service
+- **UTILIZES**: Associates Model with ModelArchitecture
+- **RUNS_ON**: Connects ModelTraining/ModelInference to Device
+- **TRAINS_ON**: Links ModelTraining to Model
+- **SOLUTION_FOR**: Connects Service to ProblemType
+- **CONTAINS**: Links ModelTraining to Parameters
+- **USES**: Connects ModelTraining to Hyperparameters
+- **INFERENCE_ON**: Links ModelInference to Model
 
 ## Ontology Diagram
 

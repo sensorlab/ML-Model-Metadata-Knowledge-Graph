@@ -1,0 +1,97 @@
+%%{
+  init: {
+    'theme': 'neutral',
+    'themeVariables': {
+        'fontSize': '16px',
+        'fontFamily': 'arial',
+        'lineWidth': '2px',
+        'clusterBkg': '#fafafa',
+        'clusterBorder': '#cccccc'
+    }
+  }
+}%%
+classDiagram
+    direction LR
+
+    Model --|> ModelTraining : TRAINS_ON
+    Model --|> ModelInference : INFERENCE_ON
+    Model --|> ModelArchitecture : UTILIZES
+    ModelInference --|> Device : RUNS_ON
+    ModelTraining --|> Device : RUNS_ON
+    ModelTraining --|> Parameters : CONTAINS
+    ModelTraining --|> Hyperparameters : USES
+    Model --|> Dataset : TRAINED_ON
+    Model --|> Service : PROVIDES
+    Service --|> ProblemType : SOLUTION_FOR
+
+    class Model {
+        <<Main>>
+        +String name
+        +String version
+        +Date dateCreated
+        +String description
+        +String author
+        +String license
+        +Float size
+    }
+
+    class ProblemType {
+        +String name
+        +String type
+    }
+
+    class Service {
+        +String name
+        +String purpose
+        +Float minAccuracy
+        +Float minLatency
+    }
+
+    class ModelArchitecture {
+        +String type
+        +Boolean explainability
+    }
+
+    class Dataset {
+        +String name
+        +String version
+        +Date dateCreated
+        +String description
+        +String author
+        +String license
+        +Float size
+    }
+
+    class ModelTraining {
+        +Float energyConsumptionCPU
+        +Float energyConsumptionGPU
+        +Float carbonFootprint
+        +Map evaluationMetrics
+    }
+
+    class ModelInference {
+        +Float energyConsumptionCPU
+        +Float energyConsumptionGPU
+        +Float carbonFootprint
+        +Float latency
+        +Int flops
+        +Int batchSize
+    }
+
+    class Device {
+        +String processor
+        +Int cores
+        +String graphicsCard
+        +Float memoryCapacity
+        +String type
+    }
+
+    class Parameters {
+        +String splitType
+        +String optimizer
+    }
+
+    class Hyperparameters {
+        +String id
+        +Map hyperparameters
+    }
