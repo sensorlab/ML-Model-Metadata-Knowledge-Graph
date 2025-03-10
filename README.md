@@ -1,4 +1,4 @@
-# ML-Model-Metadata-Knowledge-Graph
+# ML Model Metadata Knowledge Graph
 
 This project helps manage and analyze information about machine learning models (model metadata) by storing it in a knowledge graph database. When training ML models, we collect important details like how well the model performs, how much energy it uses, what kind of hardware it needs, and what data it was trained on. By organizing all this information in a graph structure, we make it easy to find the right model for specific needs, compare different models, and understand their environmental impact. The project includes schemas on how to collect this metadata in a standard format and store it in a Neo4j graph database, which is a knowledge graph that can then be queried to answer questions about the models. It enables use cases presented below.
 
@@ -63,7 +63,7 @@ The knowledge graph implements the following structure:
 - **trainsOn**: Links Model to ModelTraining
 - **solutionFor**: Connects Service to ProblemType
 
-## Ontology diagram
+## Ontology Diagram
 
 The following diagram illustrates the ontology of the knowledge graph:
 
@@ -84,7 +84,7 @@ The ML model metadata knowledge graph enables several key applications, from env
 - Possible integration with MLOps systems for optimized training and deployment on distributed infrastructure
 - This could enhance performance on edge devices through improved model orchestration and improve resource utilization based on infrastructure capabilities
 
-### Graph-based Retrieval and Analysis
+### RAG
 - Natural language interaction through Graph Retrieval Augmented Generation (RAG)
 - Generation of insights about model relationships and performance patterns
 - Interactive exploration of model metadata through graph-based queries
