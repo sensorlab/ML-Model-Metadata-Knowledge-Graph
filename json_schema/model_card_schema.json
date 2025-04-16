@@ -1,0 +1,261 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ML Model Metadata",
+  "description": "A schema for structuring machine learning model metadata in a knowledge graph format, capturing relationships between models, datasets, training processes, and inference characteristics",
+  "type": "object",
+  "properties": {
+    "architecture": {
+      "type": "object",
+      "description": "Information about the model's architectural design and interpretability characteristics",
+      "properties": {
+        "explainability": {
+          "type": "string",
+          "description": "Describes the model's interpretability characteristics and methods available for explaining its decisions"
+        },
+        "type": {
+          "type": "string",
+          "description": "The specific architecture type of the model (e.g., 'KNeighborsRegressor', 'Neural Network', 'Random Forest')"
+        }
+      },
+      "required": ["type"]
+    },
+    "author": {
+      "type": "string",
+      "description": "The individual or organization responsible for creating and training the model"
+    },
+    "dataset": {
+      "type": "object",
+      "description": "Essential information about the dataset used to train the model",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique identifier or name of the dataset"
+        },
+        "size": {
+          "type": "integer",
+          "description": "Dataset size in bytes"
+        }
+      },
+      "required": ["name", "size"]
+    },
+    "dateCreated": {
+      "type": "string",
+      "format": "date",
+      "description": "The date when the model was created or trained, in ISO 8601 format"
+    },
+    "inference": {
+      "type": "array",
+      "description": "Performance metrics and resource requirements for model inference operations in the knowledge graph",
+      "items": {
+        "type": "object",
+        "properties": {
+          "batch_size": {
+            "type": "integer",
+            "description": "Number of samples processed simultaneously during inference"
+          },
+          "carbon_footprint": {
+            "type": "number",
+            "description": "Carbon emissions during inference operations (grams of CO2)"
+          },
+          "energy_consumption": {
+            "type": "number",
+            "description": "Total energy consumed during inference operations (Joules)"
+          },
+          "flops": {
+            "type": "integer",
+            "description": "Number of floating point operations per inference"
+          },
+          "latency": {
+            "type": "number",
+            "description": "Average time per inference request (seconds)"
+          },
+          "num_of_runs": {
+            "type": "integer",
+            "description": "Number of inference runs used for statistics"
+          },
+          "total_time": {
+            "type": "number",
+            "description": "Total duration of all inference runs (seconds)"
+          },
+          "device": {
+            "type": "object",
+            "description": "Hardware specifications of inference device node in the knowledge graph",
+            "properties": {
+              "CPU": {
+                "type": "string",
+                "description": "CPU model and specifications"
+              },
+              "GPU": {
+                "type": "integer",
+                "description": "Number of GPUs (0 if none)"
+              },
+              "RAM": {
+                "type": "string",
+                "description": "RAM capacity with unit (e.g., '16GB', '1T')"
+              },
+              "numCores": {
+                "type": "integer",
+                "description": "Number of CPU cores"
+              }
+            },
+            "required": ["CPU", "numCores", "GPU", "RAM"]
+          }
+        },
+        "required": ["device", "batch_size", "latency"]
+      }
+    },
+    "name": {
+      "type": "string",
+      "description": "Unique identifier or name of the model"
+    },
+    "path": {
+      "type": "string",
+      "description": "File system path or URI where the model is stored"
+    },
+    "problemType": {
+      "type": "string",
+      "description": "Type of machine learning problem (e.g., 'Regression', 'Classification', 'Clustering')"
+    },
+    "service": {
+      "type": "object",
+      "description": "Service node information in the knowledge graph that this model provides",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the service (e.g., 'localization', 'text generation', 'image classification')"
+        }
+      },
+      "required": ["name"]
+    },
+    "size": {
+      "type": "integer",
+      "description": "Size of the model in bytes"
+    },
+    "training": {
+      "type": "object",
+      "description": "Comprehensive information about model training process and outcomes",
+      "properties": {
+        "carbonFootprint": {
+          "type": "number",
+          "description": "Carbon emissions from training process (grams of CO2)"
+        },
+        "device": {
+          "type": "object",
+          "description": "Hardware specifications of the device used for training",
+          "properties": {
+            "CPU": {
+              "type": "string",
+              "description": "CPU model and specifications used for training"
+            },
+            "GPU": {
+              "type": "integer",
+              "description": "Number of GPUs used for training (0 if none)"
+            },
+            "RAM": {
+              "type": "string",
+              "description": "RAM capacity available during training"
+            },
+            "numCores": {
+              "type": "integer",
+              "description": "Number of CPU cores used during training"
+            }
+          },
+          "required": ["CPU", "numCores"]
+        },
+        "evaluationMetrics": {
+          "type": "object",
+          "description": "Statistical measures of model performance",
+          "properties": {
+            "mae": {
+              "type": "object",
+              "description": "Mean Absolute Error statistics",
+              "properties": {
+                "mean": { "type": "number", "description": "Average MAE across validation folds" },
+                "std": { "type": "number", "description": "Standard deviation of MAE across validation folds" }
+              }
+            },
+            "mape": {
+              "type": "object",
+              "description": "Mean Absolute Percentage Error statistics",
+              "properties": {
+                "mean": { "type": "number", "description": "Average MAPE across validation folds" },
+                "std": { "type": "number", "description": "Standard deviation of MAPE across validation folds" }
+              }
+            },
+            "mede": {
+              "type": "object",
+              "description": "Median Error statistics",
+              "properties": {
+                "mean": { "type": "number", "description": "Average MEDE across validation folds" },
+                "std": { "type": "number", "description": "Standard deviation of MEDE across validation folds" }
+              }
+            },
+            "r_squared": {
+              "type": "object",
+              "description": "R-squared (coefficient of determination) statistics",
+              "properties": {
+                "mean": { "type": "number", "description": "Average R² across validation folds" },
+                "std": { "type": "number", "description": "Standard deviation of R² across validation folds" }
+              }
+            },
+            "rmse": {
+              "type": "object",
+              "description": "Root Mean Square Error statistics",
+              "properties": {
+                "mean": { "type": "number", "description": "Average RMSE across validation folds" },
+                "std": { "type": "number", "description": "Standard deviation of RMSE across validation folds" }
+              }
+            }
+          }
+        },
+        "fitTime": {
+          "type": "number",
+          "description": "Time taken to fit the model on training data, in seconds"
+        },
+        "parameters": {
+          "type": "object",
+          "description": "Model parameters and training configuration",
+          "properties": {
+            "hyperparameters": {
+              "type": "object",
+              "description": "Model-specific hyperparameters used during training",
+              "properties": {
+                "leaf_size": { "type": "integer", "description": "Size of leaves for tree-based models" },
+                "metric": { "type": "string", "description": "Distance metric used (e.g., 'minkowski')" },
+                "n_neighbors": { "type": "integer", "description": "Number of neighbors in k-NN based models" },
+                "p": { "type": "integer", "description": "Power parameter for Minkowski metric" },
+                "weights": { "type": "string", "description": "Weight function used in prediction" }
+              }
+            },
+            "optimizer": {
+              "type": "string",
+              "description": "Optimization algorithm used for hyperparameter tuning"
+            },
+            "splitType": {
+              "type": "string",
+              "description": "Method used for splitting training data (e.g., 'KFold')"
+            }
+          }
+        },
+        "powerConsumptionCPU": {
+          "type": "number",
+          "description": "Energy consumed by CPU during training (Joules)"
+        },
+        "powerConsumptionGPU": {
+          "type": "number",
+          "description": "Energy consumed by GPU during training (Joules)"
+        },
+        "totalTrainTime": {
+          "type": "number",
+          "description": "Total time for the complete training process (seconds)"
+        }
+      },
+      "required": ["device", "evaluationMetrics", "totalTrainTime"]
+    },
+    "version": {
+      "type": "string",
+      "description": "Version identifier of the model"
+    }
+  },
+  "required": ["name", "architecture", "dateCreated", "version"]
+}

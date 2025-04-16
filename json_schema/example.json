@@ -1,0 +1,85 @@
+{
+    "architecture": {
+        "type": "KNeighborsRegressor"
+    },
+    "author": "SensorLab",
+    "dataset": {
+        "name": "lumos5g",
+        "size": 10901145
+    },
+    "dateCreated": "2024-11-21",
+    "inference": [
+        {
+            "batch_size": 2,
+            "carbon_footprint": 0.0,
+            "energy_consumption": 0.0,
+            "flops": 73844,
+            "latency": 0.0130585545,
+            "num_of_runs": 1000,
+            "total_time": 26.117109,
+            "device": {
+                "CPU": "AMD EPYC 75F3 32-Core Processor",
+            "batch_size": 2,
+                "GPU": 0,
+                "RAM": "1T",
+                "numCores": 128
+            }
+        }
+    ],
+    "name": "KNeighborsRegressor-lumos5g-KFold",
+    "path": "../../artifacts/lumos5g/models/KNeighborsRegressor-KFoldSplit-results/est-5-0.pkl",
+    "problemType": "Regression",
+    "service": {
+        "minAccuracy": 0,
+        "minLatency": 0,
+        "name": "localization"
+    },
+    "size": 8720388,
+    "training": {
+        "carbonFootprint": 1.8677849575000185,
+        "device": {
+            "CPU": "AMD EPYC 75F3 32-Core Processor",
+            "GPU": 0,
+            "RAM": "1T",
+            "numCores": 128
+        },
+        "evaluationMetrics": {
+            "mae": {
+                "mean": 35.0510771470277,
+                "std": 0.13615225626275732
+            },
+            "mape": {
+                "mean": 5897469486142.656,
+                "std": 10520267000994.393
+            },
+            "mede": {
+                "mean": 77.57921720283682,
+                "std": 0.4174204867032695
+            },
+            "r_squared": {
+                "mean": 0.531374737444486,
+                "std": 0.0038341239663949793
+            },
+            "rmse": {
+                "mean": 68.98832280126233,
+                "std": 0.3223439895172661
+            }
+        },
+        "fitTime": 0.01649441719055176,
+        "parameters": {
+            "hyperparameters": {
+                "leaf_size": 10,
+                "metric": "minkowski",
+                "n_neighbors": 5,
+                "p": 1,
+                "weights": "distance"
+            },
+            "optimizer": "gridsearch",
+            "splitType": "KFold"
+        },
+        "powerConsumptionCPU": 29108.33700000029,
+        "powerConsumptionGPU": 0,
+        "totalTrainTime": 139.93190956115723
+    },
+    "version": "1.0"
+}
