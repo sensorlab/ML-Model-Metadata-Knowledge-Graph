@@ -95,6 +95,31 @@ The ML model metadata knowledge graph enables several key applications, from env
 - Generation of insights about model relationships and performance patterns
 - Interactive exploration of model metadata through graph-based queries
 
+## Example Queries
+
+### 1. Find models with the lowest energy consumption, output dataset name, architecture and FLOPs
+```cypher
+MATCH (m:Model)-[:TRAINED_ON]->(d:Dataset)
+MATCH (m)-[:UTILIZES]->(a:ModelArchitecture)
+MATCH (i:ModelInference)-[:INFERENCE_ON]->(m)
+RETURN m.name, 
+       a.type as architecture,
+       d.name as dataset,
+       i.energyConsumption,
+       i.flops
+ORDER BY i.energyConsumption ASC
+```
+
+### 2. Find models with the lowest carbon footprint
+```cypher
+MATCH (m:Model)-[:TRAINED_ON]->(d:Dataset)
+MATCH (m)-[:UTILIZES]->(a:ModelArchitecture)
+MATCH (t:ModelTraining)-[:TRAINS_ON]->(m)
+WHERE d.name = "lumos5g"
+RETURN m.name, t.carbonFootprint, t.mae_mean
+ORDER BY t.carbonFootprint ASC
+```
+
 ## License
 
 This project is licensed under the [BSD-3 Clause License](LICENSE) - see the LICENSE file for details.
