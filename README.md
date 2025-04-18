@@ -1,4 +1,4 @@
-# ML Model Metadata Knowledge Graph
+# MRM3: Machine Readable ML Model Metadata
 
 This project helps manage and analyze information about machine learning models (model metadata) by storing it in a knowledge graph database. When training ML models, we collect important details like how well the model performs, how much energy it uses, what kind of hardware it needs, and what data it was trained on. By organizing all this information in a graph structure, we make it easy to find the right model for specific needs, compare different models, and understand their environmental impact. The project includes schemas on how to collect this metadata in a standard format and store it in a Neo4j graph database, which is a knowledge graph that can then be queried to answer questions about the models. It enables use cases presented below.
 
