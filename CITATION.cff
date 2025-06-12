@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "Please cite as follows"
+authors:
+  - family-names: "Čop"
+    given-names: "Andrej"
+  - family-names: "Bertalanič"
+    given-names: "Blaž"
+  - family-names: "Fortuna"
+    given-names: "Carolina"
+  - family-names: "Grobelnik"
+    given-names: "Marko"
+title: "MRM3: Machine Readable ML Model Metadata"
+url: "https://arxiv.org/abs/2505.13343"
+preferred-citation:
+  type: generic
+  title: "MRM3: Machine Readable ML Model Metadata"
+  authors:
+    - family-names: "Čop"
+      given-names: "Andrej"
+    - family-names: "Bertalanič"
+      given-names: "Blaž"
+    - family-names: "Fortuna"
+      given-names: "Carolina"
+    - family-names: "Grobelnik"
+      given-names: "Marko"
+  year: 2025
+  url: "https://arxiv.org/abs/2505.13343"
+  archive: "arXiv"
+  archive-prefix: "arXiv"
+  eprint: "2505.13343"
