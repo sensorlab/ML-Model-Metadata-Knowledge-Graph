@@ -125,5 +125,36 @@ ORDER BY t.carbonFootprint ASC
 This project is licensed under the [BSD-3 Clause License](LICENSE) - see the LICENSE file for details.
 
 ## Citation
+Please cite our [paper](https://arxiv.org/abs/2505.13343) as follows:
+
+```bibtex
+@misc{mrm3,
+      title={MRM3: Machine Readable ML Model Metadata}, 
+      author={Andrej Čop and Blaž Bertalanič and Marko Grobelnik and Carolina Fortuna},
+      year={2025},
+      eprint={2505.13343},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2505.13343}, 
+}
+```
+
+The example json dataset is also available on zenodo: [10.5281/zenodo.15235417](https://doi.org/10.5281/zenodo.15235417). Please cite as follows:
+
+```bibtex
+@dataset{cop_2025_15235417,
+  author       = {Čop, Andrej and Bertalanic, Blaz and Fortuna, Carolina},
+  title        = {MRM3: Machine Readable ML Model Metadata},
+  month        = apr,
+  year         = 2025,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.15235417},
+  url          = {https://doi.org/10.5281/zenodo.15235417},
+}
+```
 
 ## Acknowledgments
+
+This work was supported by the Slovenian Research Agency (P20016) and the European Commission [NANCY](https://nancy-project.eu/) project (No. 101096456).
+
+We would like to acknowledge the SensorLab team for developing the localization models, and Gregor Cerar and Tim Strnad for developing an automated training pipeline.
